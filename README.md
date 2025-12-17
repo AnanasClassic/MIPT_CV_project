@@ -1,7 +1,5 @@
 # Генерация и обучение моделей для интегралов
 
-Лаконичное описание содержимого репозитория и основных команд для работы с данными и обучением LoRA-модели.
-
 ## Структура
 - `data/book_of_integrals.csv` — шаблоны интегралов (колонки Section, Integral (LHS), Result (RHS), parameter).
 - `data/synt/` — пример синтетического датасета: `metadata.csv` + PNG-изображения в `images/`.
@@ -12,7 +10,9 @@
 - `presentation.ipynb` — ноутбук с материалами презентации/экспериментами.
 
 ## Зависимости
-Python 3.10+ и пакеты: `torch`, `torchvision`, `diffusers`, `peft`, `pandas`, `numpy`, `pillow`, `matplotlib`, `tqdm`, `transformers`, `tensorboard` (для логов). Установка примером:
+Python 3.10+ и пакеты: `torch`, `torchvision`, `diffusers`, `peft`, `pandas`, `numpy`, `pillow`, `matplotlib`, `tqdm`, `transformers`, `tensorboard` (для логов).
+
+Установка:
 
 ```bash
 pip install torch torchvision diffusers peft pandas numpy pillow matplotlib tqdm transformers tensorboard
@@ -41,7 +41,7 @@ python train_lora_simple.py
 Выход: чекпоинты по эпохам в `output_dir/epoch_*/` и финальная версия в `output_dir/final/`. Для логов TensorBoard укажите `use_tensorboard = True` и смотрите `tensorboard --logdir <output_dir>/runs`.
 
 ## Генерация и сравнение
-После обучения загрузите LoRA и сгенерируйте изображения по метаданным:
+Чтобы После обучения загрузить LoRA и сгенерировать примеры:
 
 ```bash
 python visualize_lora.py \
